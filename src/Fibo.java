@@ -1,12 +1,8 @@
 import java.util.Scanner;
 
-public class App {
+public class Fibo {
     public static void main(String[] args) throws Exception {
-
-        //questao 1 
-        soma();
-
-        //questao 2 
+        
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Escolha um número: ");
@@ -17,21 +13,10 @@ public class App {
         } else {
             System.out.println("esse número não pertence à sequência de fibonacci: "+numero);
         }
-        
+        scan.close();
     
     }
-    //questao 1 
-    public static void soma(){
-     int indice = 13;
-     int soma = 0;
-     int k = 0;
-     while (k<indice) {
-        k=k+1;
-        soma = soma+k;
-     }
-     System.out.println(soma);
-    } 
-
+   
     //questao 2 
     /*Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor
      sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...),
@@ -54,7 +39,4 @@ public class App {
         return x == numero;
 
         }
-
-
-
 }
