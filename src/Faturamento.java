@@ -11,7 +11,7 @@ public class Faturamento {
         
             String dadosFaturamento = new String(Files.readAllBytes(Paths.get("src/dados.json")));
             JSONArray jsonArray = new JSONArray(dadosFaturamento);
- 
+            System.out.println(jsonArray);
             double menorFaturamento = 0;
             double maiorFaturamento =0;
 
@@ -21,10 +21,12 @@ public class Faturamento {
             // para iteração de todos os elementos do jsonArray
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                // System.out.println(jsonObject);
+                // System.out.println(jsonArray.length());
                 double valorFaturamento = jsonObject.getDouble("valor");
                 int dia = jsonObject.getInt("dia");
 
-                // caso nao haja faturamento
+                // caso haja faturamento
                 if (valorFaturamento > 0) {
                     totalDoFaturamento += valorFaturamento;
                     qntdDiasComFaturamento++;
@@ -41,7 +43,6 @@ public class Faturamento {
             }
 
             double mediaMensal = totalDoFaturamento / qntdDiasComFaturamento;
-
             int qntdDiasFaturamentoAcimaDaMedia = 0;
 
             // para verificar dias com faturamento superior à média
@@ -54,9 +55,9 @@ public class Faturamento {
             }
 
           //resultados XD
-            System.out.println("Menor valor de faturamento: " + menorFaturamento);
-            System.out.println("Maior valor de faturamento: " + maiorFaturamento);
-            System.out.println("Quantidade de dias com faturamento acima da média: " + qntdDiasFaturamentoAcimaDaMedia);
+            System.out.println("O Menor faturamento foi de: R$" + menorFaturamento);
+            System.out.println("O Maior faturamento foi de : R$" + maiorFaturamento);
+            System.out.println("Obtivera faturamento acima da média em: " + qntdDiasFaturamentoAcimaDaMedia+" dias");
        
     }
 }
